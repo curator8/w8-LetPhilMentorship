@@ -35,7 +35,6 @@ saveNameBtn.addEventListener("click", () => {
     savedNameDisplay.textContent = "none yet";
     return;
   }
-
   localStorage.setItem("savedName", currentName);
   savedNameDisplay.textContent = currentName;
 });
