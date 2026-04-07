@@ -85,10 +85,10 @@ function renderPlaylist(songsToRender) {
 
     // - 4. Append the new div to the playlist container
 
-    playlistContainer.appendChild(songCard);
+    playlistContainer.append(songCard);
   });
 
-  //  Then, after the forEach loop:
+  //  Then, after the fo    rEach loop:
   // - Use document.querySelectorAll(".delete-btn") to get all delete buttons
   // - Loop through them and add a click event listener to each:
   // -   → Get the song index from data-index
