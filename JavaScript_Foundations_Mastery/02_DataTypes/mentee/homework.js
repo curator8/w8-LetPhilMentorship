@@ -6,20 +6,32 @@
 // STEP 1: Create a variable called dayName (string)
 //         with the name of the day, for example "Monday".
 
+let dayName = "Sunday";
+
 // STEP 2: Create a variable called stepsWalked (number)
 //         with how many steps you took today (make up a number if needed).
+
+let stepsWalked = 5000;
 
 // STEP 3: Create a variable called waterCups (number)
 //         with how many cups of water you drank.
 
+let waterCups = 4;
+
 // STEP 4: Create a variable called didWorkout (boolean)
 //         with true or false, depending on if you worked out today.
+
+let didWorkout = false;
 
 // STEP 5: Create a variable called eveningPlan and set it to null
 //         to mean "no plan yet".
 
+let eveningPlan = null;
+
 // STEP 6: Create a variable called favoriteSnack but DO NOT assign a value yet,
 //         so it stays undefined for now.
+
+let favoriteSnack;
 
 // STEP 7: Use console.log to print a clear summary, for example:
 //         --- DAILY STATS ---
@@ -30,10 +42,30 @@
 //         Evening plan: (eveningPlan)
 //         Favorite snack: (favoriteSnack)
 
+console.log(`\t--- DAILY STATS ---
+    \tDay: ${dayName}
+    \tSteps walked: ${stepsWalked}
+    \tWater cups: ${waterCups}
+    \tWorked out: ${didWorkout}
+    \tEvening plan: ${eveningPlan}
+    \tFavorite snack:  ${favoriteSnack}`);
+
 // STEP 8: Now update eveningPlan to a string with a specific plan,
 //         for example "Movie night" or "Reading time".
 
+eveningPlan = "programming";
+
 // STEP 9: Assign a string value to favoriteSnack, for example "Popcorn".
+
+favoriteSnack = "trolli";
 
 // STEP 10: Use console.log again to print an UPDATED summary
 //          that shows the new values for eveningPlan and favoriteSnack.
+
+console.log(`\t--- DAILY STATS ---
+    \tDay: ${dayName}
+    \tSteps walked: ${stepsWalked}
+    \tWater cups: ${waterCups}
+    \tWorked out: ${didWorkout}
+    \tEvening plan: ${eveningPlan}
+    \tFavorite snack:  ${favoriteSnack}`);

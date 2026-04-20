@@ -7,11 +7,19 @@
 //         and set it to any number you want a table for,
 //         for example 3, 5, or 7.
 
+let baseNumber = 3;
+
 // STEP 2: Use console.log to print a title line, for example:
 //         "--- MULTIPLICATION TABLE FOR 5 ---"
 //         (But use baseNumber in your message.)
 
+console.log(`--- MULTIPLICATION TABLE FOR ${baseNumber} ---`);
+
 // STEP 3: Write a for loop that starts at 1 and goes up to 10.
+
+// for (let i = 1; i < 11; i++) {
+//   console.log(i);
+// }
 
 // STEP 4: Inside the loop:
 //         - Create a variable (or just use an expression) for the result of
@@ -21,5 +29,14 @@
 //           "5 x 2 = 10"
 //           etc., but using baseNumber and the loop counter.
 
+for (let i = 1; i < 11; i++) {
+  console.log(`${baseNumber} x ${i} = ${baseNumber * i}`);
+}
 // STEP 5: After finishing, try changing baseNumber to a new number
 //         and see the new table in the console.
+
+baseNumber = 5;
+console.log(`--- MULTIPLICATION TABLE FOR ${baseNumber} ---`);
+for (let i = 1; i < 11; i++) {
+  console.log(`${baseNumber} x ${i} = ${baseNumber * i}`);
+}

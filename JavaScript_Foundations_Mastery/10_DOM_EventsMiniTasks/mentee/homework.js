@@ -22,6 +22,16 @@
 // STEP 2: (Optional) console.log some of these variables to make
 //         sure you selected them correctly.
 
+const eventCard = document.getElementById("eventCard");
+const cardTitle = document.getElementById("cardTitle");
+const changeTitleBtn = document.getElementById("changeTitleBtn");
+const cardDescription = document.getElementById("cardDescription");
+const toggleHighlightBtn = document.getElementById("toggleHighlightBtn");
+const counterValue = document.getElementById("counterValue");
+const incrementBtn = document.getElementById("incrementBtn");
+const previewInput = document.getElementById("previewInput");
+const previewText = document.getElementById("previewText");
+
 // ==============================================
 // TASK 2 – CLICK EVENT: CHANGE TITLE TEXT
 // ==============================================
@@ -33,6 +43,11 @@
 //         - (Optional) Also update the description to mention that
 //           the title was changed by clicking the button.
 
+changeTitleBtn.addEventListener("click", (e) => {
+  cardTitle.textContent = "Wave 7 - Events in Action";
+  cardDescription.textContent = "updated the title by clicking the button.";
+});
+
 // ==============================================
 // TASK 3 – CLICK EVENT: TOGGLE HIGHLIGHT CLASS
 // ==============================================
@@ -41,6 +56,10 @@
 //         Inside the event listener function:
 //         - Use classList.toggle("event-card-highlight") on the main card.
 //           This should add/remove the highlight effect each time you click.
+
+toggleHighlightBtn.addEventListener("click", () => {
+  eventCard.classList.toggle("event-card-highlight");
+});
 
 // ==============================================
 // TASK 4 – CLICK EVENT: COUNTER +1
@@ -55,6 +74,12 @@
 //         - Update the textContent of the counter span in the page
 //           so it always shows the current count.
 
+let currentCount = 0;
+incrementBtn.addEventListener("click", () => {
+  currentCount += 1;
+  counterValue.textContent = currentCount;
+});
+
 // ==============================================
 // TASK 5 – INPUT EVENT: LIVE PREVIEW
 // ==============================================
@@ -66,3 +91,10 @@
 //         - If the value is an empty string, set the preview text
 //           to "Nothing typed yet.".
 //         - Otherwise, set the preview text to exactly what the user typed.
+
+previewInput.addEventListener("input", (e) => {
+  //   console.log(previewInput.value);
+  previewInput.value === ""
+    ? (previewText.textContent = "nothing typed yet")
+    : (previewText.textContent = previewInput.value);
+});

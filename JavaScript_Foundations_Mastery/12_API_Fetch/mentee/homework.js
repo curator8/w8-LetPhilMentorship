@@ -21,6 +21,16 @@
 //         - countryPopulationDisplay (id "countryPopulationDisplay")
 //         - countryStatusMessage (id "countryStatusMessage")
 
+const countryInput = document.getElementById("countryInput");
+const searchCountryBtn = document.getElementById("searchCountryBtn");
+const countryNameDisplay = document.getElementById("countryNameDisplay");
+const countryCapitalDisplay = document.getElementById("countryCapitalDisplay");
+const countryRegionDisplay = document.getElementById("countryRegionDisplay");
+const countryPopulationDisplay = document.getElementById(
+  "countryPopulationDisplay",
+);
+const countryStatusMessage = document.getElementById("countryStatusMessage");
+
 // ==============================================
 // STEP 2 – ADD CLICK EVENT
 // ==============================================
@@ -39,6 +49,51 @@
 //
 //         - Set countryStatusMessage.textContent to "Loading...".
 //         - (Optional) You can also reset the info texts to placeholders.
+
+// console.log(countryInput.value);
+
+searchCountryBtn.addEventListener("click", () => {
+  let countryName = countryInput.value.trim();
+
+  if (countryName === "") {
+    return (countryStatusMessage.textContent = "Pleases type a country name.");
+  } else {
+    const url =
+      "https://restcountries.com/v3.1/name/" +
+      encodeURIComponent(countryName) +
+      "?fields=name,capital,region,population";
+    countryStatusMessage.textContent = "Loading...";
+
+    fetch(url)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Country not found");
+        }
+
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data[0]);
+
+        let name = data[0].name.common;
+        let capital = data[0].capital[0];
+        let region = data[0].region;
+        let population = data[0].population;
+
+        countryNameDisplay.textContent = `Country: ${name}`;
+        countryCapitalDisplay.textContent = `Capital: ${capital}`;
+        countryRegionDisplay.textContent = ` Region: ${region}`;
+        countryPopulationDisplay.textContent = `Population: ${population}`;
+        countryStatusMessage.textContent =
+          "Country information loaded successfully.";
+      })
+      .catch((error) => {
+        console.log(error);
+        countryNameDisplay.textContent =
+          "Could not load country info. Please check the name and try again.";
+      });
+  }
+});
 
 // ==============================================
 // STEP 3 – CALL FETCH

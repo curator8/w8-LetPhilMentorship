@@ -14,6 +14,9 @@
 //         - generateProductsBtn (id "generateProductsBtn")
 //         - productContainer (id "productContainer")
 
+const generateProductsBtn = document.getElementById("generateProductsBtn");
+const productContainer = document.getElementById("productContainer");
+
 // ==============================================
 // STEP 2 – CREATE PRODUCTS ARRAY
 // ==============================================
@@ -23,6 +26,24 @@
 //           - title (string)
 //           - price (number)
 //           - stock (number)
+
+const products = [
+  {
+    title: "shirt",
+    price: 25.99,
+    stock: 20,
+  },
+  {
+    title: "hats",
+    price: 15.99,
+    stock: 20,
+  },
+  {
+    title: "pants",
+    price: 45.99,
+    stock: 0,
+  },
+];
 
 // ==============================================
 // STEP 3 – createProductCard FUNCTION (DESTRUCTURING)
@@ -51,6 +72,20 @@
 //                   </article>
 //                 `
 
+function createProductCard({ title, price, stock }) {
+  const priceText = "$" + price.toFixed(2);
+
+  let stockMessage = stock === 0 ? "Out of stock" : `In Stock: ${stock} items`;
+  let stockClass = stock === 0 ? "out" : "in";
+  return `
+                  <article class="product-card">
+                    <h2 class="product-title">${title}</h2>
+                    <p class="product-price">${priceText}</p>
+                    <p class="product-stock ${stockClass}">${stockMessage}</p>
+                  </article>
+                `;
+}
+
 // ==============================================
 // STEP 4 – LOOP & RENDER ON BUTTON CLICK
 // ==============================================
@@ -66,3 +101,11 @@
 //             productContainer.innerHTML = cardsHTML;
 //
 //         Now when you click the button, the product cards should appear.
+
+generateProductsBtn.addEventListener("click", () => {
+  cardsHTML = "";
+  products.forEach((product) => {
+    cardsHTML += createProductCard(product);
+  });
+  productContainer.innerHTML = cardsHTML;
+});
